@@ -4,30 +4,30 @@ import '../../constraits.dart';
 class ImageAndIcons extends StatelessWidget {
   const ImageAndIcons({
     Key key,
-    @required this.size,
+    @required this.size, this.image,
   }) : super(key: key);
 
   final Size size;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: defaultPadding*3),
+      padding: const EdgeInsets.only(bottom: defaultPadding * 3),
       child: SizedBox(
         height: size.height * 0.8,
         child: Row(
           children: <Widget>[
             Expanded(
                 child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: defaultPadding * 3),
+              padding: const EdgeInsets.symmetric(vertical: defaultPadding * 2),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Align(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.topCenter,
                     child: IconButton(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: defaultPadding),
+                        color: primaryColor,
                         icon: Icon(Icons.arrow_back),
                         onPressed: () {
                           Navigator.pop(context);
@@ -35,8 +35,6 @@ class ImageAndIcons extends StatelessWidget {
                   ),
                   Spacer(),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: size.height * 0.03),
-                    padding: EdgeInsets.all(defaultPadding/2),
                     height: 62,
                     width: 62,
                     decoration: BoxDecoration(
@@ -48,14 +46,16 @@ class ImageAndIcons extends StatelessWidget {
                             blurRadius: 22,
                             color: primaryColor.withOpacity(0.3)),
                         BoxShadow(
-                            offset: Offset(-15, -15), blurRadius: 20, color: Colors.white)
+                            offset: Offset(-15, -15),
+                            blurRadius: 20,
+                            color: Colors.white)
                       ],
                     ),
-                    child: IconButton(icon: Icon(Icons.lightbulb_outline), onPressed: (){}),
+                    child: IconButton(
+                        icon: Icon(Icons.lightbulb_outline), onPressed: () {}),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: size.height * 0.03),
-                    padding: EdgeInsets.all(defaultPadding/2),
                     height: 62,
                     width: 62,
                     decoration: BoxDecoration(
@@ -67,14 +67,16 @@ class ImageAndIcons extends StatelessWidget {
                             blurRadius: 22,
                             color: primaryColor.withOpacity(0.3)),
                         BoxShadow(
-                            offset: Offset(-15, -15), blurRadius: 20, color: Colors.white)
+                            offset: Offset(-15, -15),
+                            blurRadius: 20,
+                            color: Colors.white)
                       ],
                     ),
-                    child: IconButton(icon: Icon(Icons.all_out), onPressed: (){}),
+                    child:
+                        IconButton(icon: Icon(Icons.all_out), onPressed: () {}),
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(vertical: size.height * 0.03),
-                    padding: EdgeInsets.all(defaultPadding/2),
                     height: 62,
                     width: 62,
                     decoration: BoxDecoration(
@@ -86,14 +88,16 @@ class ImageAndIcons extends StatelessWidget {
                             blurRadius: 22,
                             color: primaryColor.withOpacity(0.3)),
                         BoxShadow(
-                            offset: Offset(-15, -15), blurRadius: 20, color: Colors.white)
+                            offset: Offset(-15, -15),
+                            blurRadius: 20,
+                            color: Colors.white)
                       ],
                     ),
-                    child: IconButton(icon: Icon(Icons.all_inclusive), onPressed: (){}),
+                    child: IconButton(
+                        icon: Icon(Icons.all_inclusive), onPressed: () {}),
                   ),
                   Container(
-                    margin: EdgeInsets.symmetric(vertical: size.height * 0.001),
-                    padding: EdgeInsets.all(defaultPadding/2),
+                    margin: EdgeInsets.symmetric(vertical: size.height * 0.03),
                     height: 62,
                     width: 62,
                     decoration: BoxDecoration(
@@ -105,10 +109,13 @@ class ImageAndIcons extends StatelessWidget {
                             blurRadius: 22,
                             color: primaryColor.withOpacity(0.3)),
                         BoxShadow(
-                            offset: Offset(-15, -15), blurRadius: 20, color: Colors.white)
+                            offset: Offset(-15, -15),
+                            blurRadius: 20,
+                            color: Colors.white)
                       ],
                     ),
-                    child: IconButton(icon: Icon(Icons.call_split), onPressed: (){}),
+                    child: IconButton(
+                        icon: Icon(Icons.call_split), onPressed: () {}),
                   )
                 ],
               ),
@@ -129,7 +136,7 @@ class ImageAndIcons extends StatelessWidget {
                   image: DecorationImage(
                       fit: BoxFit.cover,
                       alignment: Alignment.centerLeft,
-                      image: AssetImage("assets/images/bike.jpg"))),
+                      image: AssetImage(image))),
             )
           ],
         ),

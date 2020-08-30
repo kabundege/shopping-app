@@ -16,34 +16,50 @@ class RecomendsPlants extends StatelessWidget {
           RecomenedPlant(
             image: "assets/images/bike.jpg",
             title: "BMW Max",
-            country:"Germany",
+            country: "Germany",
             price: 1500,
-            press: (){
+            press: () {
               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailScreen())
-                    );
+                  MaterialPageRoute(builder: (context) => DetailScreen(
+                            image: 'assets/images/bike.jpg',
+                            title: "BMW Max",
+                            country: "Germany",
+                            price: 1500,
+                  )));
             },
           ),
           RecomenedPlant(
             image: "assets/images/ball.jpg",
-            title: "Molten II",
-            country:"USA",
+            title: "Sparding II",
+            country: "USA",
             price: 50,
-            press: (){
-              Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailScreen())
-                    );
+            press: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailScreen(
+                            image: 'assets/images/ball.jpg',
+                            title: "Sparding II",
+                            country: "USA",
+                            price: 50,
+                          )
+                    )
+                );
             },
           ),
           RecomenedPlant(
             image: "assets/images/pc.jpg",
             title: "Hp Elite Book",
-            country:"CHINA",
-            price: 1500,
-            press: (){
+            country: "CHINA",
+            price: 500,
+            press: () {
               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DetailScreen())
-                    );
+                  MaterialPageRoute(builder: (context) => DetailScreen(
+                    image: 'assets/images/pc.jpg',
+                    title: "Hp Elite Book",
+                    country: "China",
+                    price: 500,
+                  )));
             },
           ),
         ],
@@ -55,7 +71,11 @@ class RecomendsPlants extends StatelessWidget {
 class RecomenedPlant extends StatelessWidget {
   const RecomenedPlant({
     Key key,
-    this.image, this.title, this.country, this.price, this.press,
+    this.image,
+    this.title,
+    this.country,
+    this.price,
+    this.press,
   }) : super(key: key);
 
   final String image, title, country;
@@ -65,7 +85,9 @@ class RecomenedPlant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
+    return GestureDetector(
+        onTap: press,
+    child:Container(
       margin: EdgeInsets.only(
         left: defaultPadding,
         right: defaultPadding / 2,
@@ -75,9 +97,7 @@ class RecomenedPlant extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(image),
-          GestureDetector(
-            onTap: press,
-            child: Container(
+            Container(
               padding: EdgeInsets.all(defaultPadding / 2),
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -111,9 +131,9 @@ class RecomenedPlant extends StatelessWidget {
                 ],
               ),
             ),
-          )
         ],
       ),
+    )
     );
   }
 }
